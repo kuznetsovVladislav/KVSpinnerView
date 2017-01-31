@@ -10,7 +10,10 @@ import UIKit
 
 //MARK: - Settings
 
-struct KVSpinnerViewSettings {
+
+/// Customizes KVSpinnerView parameters.
+/// Use it before calling methods of shared instance.
+public struct KVSpinnerViewSettings {
     static var spinnerRadius: CGFloat = 50
     static var linesWidth: CGFloat = 4
     static var linesCount = 4
@@ -30,7 +33,34 @@ struct KVSpinnerViewSettings {
 
 public class KVSpinnerView: UIView {
     
+    //MARK: - Public Static
+    
+    /// You only should invoke shared instance to use any methods
+    /// of KVSpinnerView
     public static var shared = KVSpinnerView()
+    
+    /// Adds SpinnerView to your view and start animating it
+    /// - parameter view: use from ViewController (for example: self.view).
+    public func startAnimating(on view: UIView) {
+        privateStartAnimating(on: view)
+    }
+    
+    /// Adds SpinnerView to UIWindow and start animating it
+    public func show() {
+		privateShow()
+    }
+    
+    /// Removes SpinnerView from either UIWindow or ViewController's view
+    public func dismiss() {
+		privateDismiss()
+    }
+    
+    /// Handles incoming progress. You should call it in
+    /// request progress closure (for example Alamofire .downloadProgress(_ progress))
+    /// - parameter progress: incoming progress
+    public func handleProgress(_ progress: Progress) {
+        privateHandleProgress(progress)
+    }
     
     //MARK: - Private variables
     
@@ -46,24 +76,6 @@ public class KVSpinnerView: UIView {
     
     fileprivate var progress: CGFloat = 0.0
     fileprivate var chosenView: UIView?
-    
-    //MARK: - Public Static Methods
-    
-    public func startAnimating(on view: UIView) {
-        privateStartAnimating(on: view)
-    }
-    
-    public func show() {
-		privateShow()
-    }
-    
-    public func dismiss() {
-		privateDismiss()
-    }
-    
-    public func handleProgress(_ progress: Progress) {
-        privateHandleProgress(progress)
-    }
     
     //MARK: - Private methods
     
@@ -129,7 +141,6 @@ public class KVSpinnerView: UIView {
     
     fileprivate func privateShow() {
         let window = UIApplication.shared.keyWindow!
-        print("\(window.center)")
         let radius = KVSpinnerViewSettings.spinnerRadius
         self.frame = CGRect(x: window.bounds.midX,
                             y: window.bounds.midY,
