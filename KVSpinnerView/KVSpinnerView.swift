@@ -14,19 +14,19 @@ import UIKit
 /// Customizes KVSpinnerView parameters.
 /// Use it before calling methods of shared instance.
 public struct KVSpinnerViewSettings {
-    static var spinnerRadius: CGFloat = 50
-    static var linesWidth: CGFloat = 4
-    static var linesCount = 4
-    static var backgroundOpacity: Float = 1.0
+    public static var spinnerRadius: CGFloat = 50
+    public static var linesWidth: CGFloat = 4
+    public static var linesCount = 4
+    public static var backgroundOpacity: Float = 1.0
     
-    static var tintColor: UIColor = .white
-    static var backgroundColor: UIColor? = nil
-    static var progressTextColor: UIColor = .red
-    static var backgroundRectColor: UIColor = .purple
+    public static var tintColor: UIColor = .white
+    public static var backgroundColor: UIColor? = nil
+    public static var progressTextColor: UIColor = .red
+    public static var backgroundRectColor: UIColor = .purple
     
-	static var animationDuration = 2.0
-    static var fadeInDuration = 0.3
-    static var fadeOutDuration = 0.3
+	public static var animationDuration = 2.0
+    public static var fadeInDuration = 0.3
+    public static var fadeOutDuration = 0.3
 }
 
 //MARK: - KVSpinnerView
@@ -165,7 +165,7 @@ public class KVSpinnerView: UIView {
     }
     
     //MARK: - Override
-    
+
     override public func tintColorDidChange() {
         super.tintColorDidChange()
         for circleLayer in circleLayers {
