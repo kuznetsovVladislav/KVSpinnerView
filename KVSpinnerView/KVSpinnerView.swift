@@ -30,7 +30,7 @@ struct KVSpinnerViewSettings {
 
 public class KVSpinnerView: UIView {
     
-    static var shared = KVSpinnerView()
+    public static var shared = KVSpinnerView()
     
     //MARK: - Private variables
     
