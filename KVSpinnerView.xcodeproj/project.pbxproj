@@ -1,0 +1,393 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0C4D04A7D508645E900E05F4 /* Pods_KVSpinnerView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A9AC41C9F48FE583E4426A /* Pods_KVSpinnerView.framework */; };
+		861667A51E40EE910050BD06 /* KVSpinnerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 861667A31E40EE910050BD06 /* KVSpinnerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8663ECFE1E40F15D00352D44 /* CircleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8663ECFB1E40F15D00352D44 /* CircleLayer.swift */; };
+		8663ECFF1E40F15D00352D44 /* ProgressLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8663ECFC1E40F15D00352D44 /* ProgressLayer.swift */; };
+		8663ED001E40F15D00352D44 /* RectangleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8663ECFD1E40F15D00352D44 /* RectangleLayer.swift */; };
+		8663ED031E40F16D00352D44 /* AnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8663ED011E40F16D00352D44 /* AnimationManager.swift */; };
+		8663ED041E40F16D00352D44 /* KVSpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8663ED021E40F16D00352D44 /* KVSpinnerView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		04A9AC41C9F48FE583E4426A /* Pods_KVSpinnerView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KVSpinnerView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		861667A01E40EE910050BD06 /* KVSpinnerView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KVSpinnerView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		861667A31E40EE910050BD06 /* KVSpinnerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KVSpinnerView.h; sourceTree = "<group>"; };
+		861667A41E40EE910050BD06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8663ECFB1E40F15D00352D44 /* CircleLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleLayer.swift; sourceTree = "<group>"; };
+		8663ECFC1E40F15D00352D44 /* ProgressLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressLayer.swift; sourceTree = "<group>"; };
+		8663ECFD1E40F15D00352D44 /* RectangleLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectangleLayer.swift; sourceTree = "<group>"; };
+		8663ED011E40F16D00352D44 /* AnimationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
+		8663ED021E40F16D00352D44 /* KVSpinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KVSpinnerView.swift; sourceTree = "<group>"; };
+		E897FEF3FCF69B8447DE5D33 /* Pods-KVSpinnerView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVSpinnerView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KVSpinnerView/Pods-KVSpinnerView.debug.xcconfig"; sourceTree = "<group>"; };
+		F41A60FE6D8B7267309BBE55 /* Pods-KVSpinnerView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVSpinnerView.release.xcconfig"; path = "Pods/Target Support Files/Pods-KVSpinnerView/Pods-KVSpinnerView.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8616679C1E40EE910050BD06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C4D04A7D508645E900E05F4 /* Pods_KVSpinnerView.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		665D06F625B2A787AB0C031B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				04A9AC41C9F48FE583E4426A /* Pods_KVSpinnerView.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		861667961E40EE910050BD06 = {
+			isa = PBXGroup;
+			children = (
+				861667A21E40EE910050BD06 /* KVSpinnerView */,
+				861667A11E40EE910050BD06 /* Products */,
+				E89DD3B066C9A6FD8D5771B3 /* Pods */,
+				665D06F625B2A787AB0C031B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		861667A11E40EE910050BD06 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				861667A01E40EE910050BD06 /* KVSpinnerView.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		861667A21E40EE910050BD06 /* KVSpinnerView */ = {
+			isa = PBXGroup;
+			children = (
+				861667A31E40EE910050BD06 /* KVSpinnerView.h */,
+				8663ED021E40F16D00352D44 /* KVSpinnerView.swift */,
+				8663ED011E40F16D00352D44 /* AnimationManager.swift */,
+				8663ECFA1E40F15D00352D44 /* Layers */,
+				861667A41E40EE910050BD06 /* Info.plist */,
+			);
+			path = KVSpinnerView;
+			sourceTree = "<group>";
+		};
+		8663ECFA1E40F15D00352D44 /* Layers */ = {
+			isa = PBXGroup;
+			children = (
+				8663ECFB1E40F15D00352D44 /* CircleLayer.swift */,
+				8663ECFC1E40F15D00352D44 /* ProgressLayer.swift */,
+				8663ECFD1E40F15D00352D44 /* RectangleLayer.swift */,
+			);
+			path = Layers;
+			sourceTree = "<group>";
+		};
+		E89DD3B066C9A6FD8D5771B3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E897FEF3FCF69B8447DE5D33 /* Pods-KVSpinnerView.debug.xcconfig */,
+				F41A60FE6D8B7267309BBE55 /* Pods-KVSpinnerView.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		8616679D1E40EE910050BD06 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				861667A51E40EE910050BD06 /* KVSpinnerView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		8616679F1E40EE910050BD06 /* KVSpinnerView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 861667A81E40EE910050BD06 /* Build configuration list for PBXNativeTarget "KVSpinnerView" */;
+			buildPhases = (
+				7C346656ADB5986ED3936D1B /* [CP] Check Pods Manifest.lock */,
+				8616679B1E40EE910050BD06 /* Sources */,
+				8616679C1E40EE910050BD06 /* Frameworks */,
+				8616679D1E40EE910050BD06 /* Headers */,
+				8616679E1E40EE910050BD06 /* Resources */,
+				502203EE7388587117417033 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KVSpinnerView;
+			productName = KVSpinnerView;
+			productReference = 861667A01E40EE910050BD06 /* KVSpinnerView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		861667971E40EE910050BD06 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = Vladislav;
+				TargetAttributes = {
+					8616679F1E40EE910050BD06 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = M375QZ42BY;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 8616679A1E40EE910050BD06 /* Build configuration list for PBXProject "KVSpinnerView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 861667961E40EE910050BD06;
+			productRefGroup = 861667A11E40EE910050BD06 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8616679F1E40EE910050BD06 /* KVSpinnerView */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8616679E1E40EE910050BD06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		502203EE7388587117417033 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-KVSpinnerView/Pods-KVSpinnerView-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7C346656ADB5986ED3936D1B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8616679B1E40EE910050BD06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8663ED031E40F16D00352D44 /* AnimationManager.swift in Sources */,
+				8663ECFF1E40F15D00352D44 /* ProgressLayer.swift in Sources */,
+				8663ED041E40F16D00352D44 /* KVSpinnerView.swift in Sources */,
+				8663ECFE1E40F15D00352D44 /* CircleLayer.swift in Sources */,
+				8663ED001E40F15D00352D44 /* RectangleLayer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		861667A61E40EE910050BD06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		861667A71E40EE910050BD06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		861667A91E40EE910050BD06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E897FEF3FCF69B8447DE5D33 /* Pods-KVSpinnerView.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = M375QZ42BY;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = KVSpinnerView/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kuznetsov.KVSpinnerView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		861667AA1E40EE910050BD06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F41A60FE6D8B7267309BBE55 /* Pods-KVSpinnerView.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = M375QZ42BY;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = KVSpinnerView/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.kuznetsov.KVSpinnerView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8616679A1E40EE910050BD06 /* Build configuration list for PBXProject "KVSpinnerView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				861667A61E40EE910050BD06 /* Debug */,
+				861667A71E40EE910050BD06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		861667A81E40EE910050BD06 /* Build configuration list for PBXNativeTarget "KVSpinnerView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				861667A91E40EE910050BD06 /* Debug */,
+				861667AA1E40EE910050BD06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 861667971E40EE910050BD06 /* Project object */;
+}
