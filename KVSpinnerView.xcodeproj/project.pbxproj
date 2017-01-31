@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0C4D04A7D508645E900E05F4 /* Pods_KVSpinnerView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A9AC41C9F48FE583E4426A /* Pods_KVSpinnerView.framework */; };
-		861667A51E40EE910050BD06 /* KVSpinnerView.h in Headers */ = {isa = PBXBuildFile; fileRef = 861667A31E40EE910050BD06 /* KVSpinnerView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8663ECFE1E40F15D00352D44 /* CircleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8663ECFB1E40F15D00352D44 /* CircleLayer.swift */; };
 		8663ECFF1E40F15D00352D44 /* ProgressLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8663ECFC1E40F15D00352D44 /* ProgressLayer.swift */; };
 		8663ED001E40F15D00352D44 /* RectangleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8663ECFD1E40F15D00352D44 /* RectangleLayer.swift */; };
@@ -19,7 +18,6 @@
 /* Begin PBXFileReference section */
 		04A9AC41C9F48FE583E4426A /* Pods_KVSpinnerView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_KVSpinnerView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		861667A01E40EE910050BD06 /* KVSpinnerView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KVSpinnerView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		861667A31E40EE910050BD06 /* KVSpinnerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KVSpinnerView.h; sourceTree = "<group>"; };
 		861667A41E40EE910050BD06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8663ECFB1E40F15D00352D44 /* CircleLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleLayer.swift; sourceTree = "<group>"; };
 		8663ECFC1E40F15D00352D44 /* ProgressLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressLayer.swift; sourceTree = "<group>"; };
@@ -71,7 +69,6 @@
 		861667A21E40EE910050BD06 /* KVSpinnerView */ = {
 			isa = PBXGroup;
 			children = (
-				861667A31E40EE910050BD06 /* KVSpinnerView.h */,
 				8663ED021E40F16D00352D44 /* KVSpinnerView.swift */,
 				8663ED011E40F16D00352D44 /* AnimationManager.swift */,
 				8663ECFA1E40F15D00352D44 /* Layers */,
@@ -106,7 +103,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				861667A51E40EE910050BD06 /* KVSpinnerView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
