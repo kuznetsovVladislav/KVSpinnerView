@@ -10,19 +10,56 @@ import UIKit
 
 class RectangleLayer: CAShapeLayer {
     
+    var statusMessage: String? {
+        didSet {
+            updateLayers()
+        }
+    }
+    
+    fileprivate let rectSide = KVSpinnerViewSettings.spinnerRadius + 80
+    
     var bezierPath: UIBezierPath {
-        let radius = KVSpinnerViewSettings.spinnerRadius
-        let rectSide = radius + 80
         return UIBezierPath(roundedRect: CGRect.init(x: -rectSide / 2,
                                                      y: -rectSide / 2,
-                                                     width: rectSide ,
+                                                     width: rectSide,
                                                      height: rectSide), cornerRadius: rectSide / 5)
+    }
+    
+    func bezierPathWithStatus(width: CGFloat) -> UIBezierPath {
+        return UIBezierPath(roundedRect: CGRect.init(x: width > rectSide ? -(width/2 + 10) : -rectSide / 2,
+                                                     y: -rectSide / 2,
+                                                     width: width > rectSide ? width + 20 : rectSide,
+                                                     height: rectSide + 30), cornerRadius: rectSide / 5)
+    }
+    
+    fileprivate func setup() {
+        path = bezierPath.cgPath
+        fillColor = KVSpinnerViewSettings.backgroundRectColor.cgColor
+    }
+    
+    fileprivate func updateLayers() {
+        if let message = statusMessage {
+            
+            let font = UIFont.systemFont(ofSize: 16.0)
+            let messageString = message as NSString
+            let messageWidth = messageString.size(attributes: [NSFontAttributeName : font]).width
+            path = bezierPathWithStatus(width: messageWidth).cgPath
+            let statusLayer = StatusTitleLayer(message: message, 				//TODO: - Perhapse need to extend font in settings
+                                               frame: CGRect(
+                                                x: messageWidth > rectSide ? -rectSide : 0,
+                                                y: 0.0,
+                                                width: messageWidth > rectSide ? messageWidth : rectSide,
+                                                height: 25))
+            let layerPosition = CGPoint(x: bounds.midX, y: 70)
+            statusLayer.position = layerPosition
+            
+            addSublayer(statusLayer)
+        }
     }
     
     override init() {
         super.init()
-        path = bezierPath.cgPath
-        fillColor = KVSpinnerViewSettings.backgroundRectColor.cgColor
+        setup()
     }
 
     required init?(coder aDecoder: NSCoder) {

@@ -15,7 +15,7 @@ class ProgressLayer: CATextLayer {
     override init() {
         super.init()
         string = "\(progress)"
-        foregroundColor = KVSpinnerViewSettings.progressTextColor.cgColor
+//        foregroundColor = KVSpinnerViewSettings.progressTextColor.cgColor
         frame = CGRect(x: 0, y: 0, width: 100, height: 40)
         fontSize = 24.0
         alignmentMode = kCAAlignmentJustified

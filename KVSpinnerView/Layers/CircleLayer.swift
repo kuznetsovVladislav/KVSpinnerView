@@ -17,7 +17,7 @@ class CircleLayer: CAShapeLayer {
         super.init()
         path = bezierPath.cgPath
         lineWidth = KVSpinnerViewSettings.linesWidth
-        fillColor = KVSpinnerViewSettings.backgroundColor?.cgColor
+        fillColor = nil
         opacity = KVSpinnerViewSettings.backgroundOpacity
     }
     

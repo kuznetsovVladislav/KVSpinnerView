@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>ExampleProject.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 		<key>KVSpinnerView.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -13,6 +18,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>8616679F1E40EE910050BD06</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8671371A1E413C7D00C3F267</key>
 		<dict>
 			<key>primary</key>
 			<true/>
