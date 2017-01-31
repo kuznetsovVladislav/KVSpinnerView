@@ -28,7 +28,7 @@ struct KVSpinnerViewSettings {
 
 //MARK: - KVSpinnerView
 
-class KVSpinnerView: UIView {
+public class KVSpinnerView: UIView {
     
     static var shared = KVSpinnerView()
     
@@ -155,7 +155,7 @@ class KVSpinnerView: UIView {
     
     //MARK: - Override
     
-    override func tintColorDidChange() {
+    override public func tintColorDidChange() {
         super.tintColorDidChange()
         for circleLayer in circleLayers {
             circleLayer.strokeColor = KVSpinnerViewSettings.tintColor.cgColor
@@ -169,16 +169,16 @@ class KVSpinnerView: UIView {
         setup()
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         setupLayersPositions()
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required public init(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
     }
     
-    override func awakeFromNib() {
+    override public func awakeFromNib() {
         super.awakeFromNib()
         fatalError("You have to use 'SpinningView.shared.show()' or 'SpinningView.shared.startAnimating(on view: _)' instead.\n")
     }
