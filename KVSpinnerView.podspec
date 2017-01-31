@@ -38,6 +38,6 @@ Pod::Spec.new do |s|
   s.framework = "UIKit"
  
   # 8
-  s.source_files = "KVSpinnerView/**/*.{swift}"
+  s.source_files = "KVSpinnerView/**/KVSpinnerView.{swift}"
  
 end
