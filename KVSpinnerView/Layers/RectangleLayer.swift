@@ -16,7 +16,7 @@ class RectangleLayer: CAShapeLayer {
         }
     }
     
-    fileprivate let rectSide = KVSpinnerViewSettings.spinnerRadius + 80
+    fileprivate let rectSide = KVSpinnerView.settings.spinnerRadius + 80
     
     var bezierPath: UIBezierPath {
         return UIBezierPath(roundedRect: CGRect.init(x: -rectSide / 2,
@@ -34,7 +34,7 @@ class RectangleLayer: CAShapeLayer {
     
     fileprivate func setup() {
         path = bezierPath.cgPath
-        fillColor = KVSpinnerViewSettings.backgroundRectColor.cgColor
+        fillColor = KVSpinnerView.settings.backgroundRectColor.cgColor
     }
     
     fileprivate func updateLayers() {

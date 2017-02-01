@@ -20,21 +20,20 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     @IBAction func showSpinner(_ sender: Any) {
-        KVSpinnerView.shared.show()
-        
+        KVSpinnerView.show()
     }
     
     @IBAction func dismissSpinner(_ sender: Any) {
-        KVSpinnerView.shared.dismiss()
+        KVSpinnerView.dismiss()
     }
     
     @IBAction func downloadImageAction(_ sender: Any) {
-        KVSpinnerView.shared.showWithProgress()
+        KVSpinnerView.showWithProgress()
         realProgressExample()
     }
     
     @IBAction func downloadImageTextAction(_ sender: Any) {
-        KVSpinnerView.shared.showWithProgress(saying: "Downloading image")
+        KVSpinnerView.showWithProgress(saying: "Downloading image")
         realProgressExample()
     }
     
@@ -53,14 +52,14 @@ class ViewController: UIViewController {
     }
     
     fileprivate func fakeProgressExample() {
-        KVSpinnerView.shared.showWithProgress()
+        KVSpinnerView.showWithProgress()
         let time = DispatchTime.now() + .seconds(1)
         let time2 = DispatchTime.now() + .seconds(2)
         DispatchQueue.main.asyncAfter(deadline: time) {
-            KVSpinnerView.shared.updateProgress(0.5)
+            KVSpinnerView.updateProgress(0.5)
         }
         DispatchQueue.main.asyncAfter(deadline: time2, execute: {
-            KVSpinnerView.shared.updateProgress(1.0)
+            KVSpinnerView.updateProgress(1.0)
         })
     }
 }
@@ -75,7 +74,7 @@ extension ViewController: URLSessionDelegate, URLSessionDataDelegate {
     func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
         buffer.append(data)
         let percentageDownloaded = CGFloat(buffer.length) / CGFloat(expectedContentLenght)
-        KVSpinnerView.shared.updateProgress(percentageDownloaded)
+        KVSpinnerView.updateProgress(percentageDownloaded)
     }
 }
 

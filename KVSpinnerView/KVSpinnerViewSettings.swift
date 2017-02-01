@@ -14,19 +14,18 @@ import UIKit
  */
 public struct KVSpinnerViewSettings {
     
-    public static var spinnerRadius: CGFloat = 50
-    public static var linesWidth: CGFloat = 4
-    public static var linesCount = 4
-    public static var backgroundOpacity: Float = 1.0
+    public var spinnerRadius: CGFloat = 50
+    public var linesWidth: CGFloat = 4
+    public var linesCount = 4
+    public var backgroundOpacity: Float = 1.0
     
-    public static var tintColor: UIColor = .white
-//    public static var progressTextColor: UIColor = .red
-    public static var backgroundRectColor: UIColor = .purple
-    public static var statusTextColor: UIColor = .white
+    public var tintColor: UIColor = .white
+    public var backgroundRectColor: UIColor = .purple
+    public var statusTextColor: UIColor = .white
     
-    public static var minimumDismissDelay = 0.0
-    public static var animationDuration = 2.0
-    public static var fadeInDuration = 0.3
-    public static var fadeOutDuration = 0.3
+    public var minimumDismissDelay = 0.0
+    public var animationDuration = 2.0
+    public var fadeInDuration = 0.3
+    public var fadeOutDuration = 0.3
     
 }

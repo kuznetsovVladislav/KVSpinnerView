@@ -24,11 +24,11 @@ class AnimationManager: NSObject {
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.fromValue = 0
         animation.toValue =
-        animation.duration = KVSpinnerViewSettings.animationDuration - 0.5
+        animation.duration = KVSpinnerView.settings.animationDuration - 0.5
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         
         let group = CAAnimationGroup()
-        group.duration = KVSpinnerViewSettings.animationDuration
+        group.duration = KVSpinnerView.settings.animationDuration
         group.repeatCount = MAXFLOAT
         group.animations = [animation]
         
@@ -40,11 +40,11 @@ class AnimationManager: NSObject {
         animation.beginTime = 0.5
         animation.fromValue = 0
         animation.toValue = 1
-        animation.duration = KVSpinnerViewSettings.animationDuration - 0.5
+        animation.duration = KVSpinnerView.settings.animationDuration - 0.5
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         
         let group = CAAnimationGroup()
-        group.duration = KVSpinnerViewSettings.animationDuration
+        group.duration = KVSpinnerView.settings.animationDuration
         group.repeatCount = MAXFLOAT
         group.animations = [animation]
         
@@ -56,7 +56,7 @@ class AnimationManager: NSObject {
         animation.fromValue = 0
         animation.toValue = 1
         animation.repeatCount = 1
-        animation.duration = KVSpinnerViewSettings.fadeInDuration
+        animation.duration = KVSpinnerView.settings.fadeInDuration
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
 
         return animation
@@ -67,7 +67,7 @@ class AnimationManager: NSObject {
         animation.fromValue = 1
         animation.toValue = 0
         animation.repeatCount = 1
-        animation.duration = KVSpinnerViewSettings.fadeOutDuration
+        animation.duration = KVSpinnerView.settings.fadeOutDuration
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
         animation.fillMode = kCAFillModeForwards
         animation.isRemovedOnCompletion = false

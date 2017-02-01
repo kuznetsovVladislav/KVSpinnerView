@@ -16,9 +16,9 @@ class CircleLayer: CAShapeLayer {
         self.index = index
         super.init()
         path = bezierPath.cgPath
-        lineWidth = KVSpinnerViewSettings.linesWidth
+        lineWidth = KVSpinnerView.settings.linesWidth
         fillColor = nil
-        opacity = KVSpinnerViewSettings.backgroundOpacity
+        opacity = KVSpinnerView.settings.backgroundOpacity
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -31,7 +31,7 @@ class CircleLayer: CAShapeLayer {
     
     fileprivate func layerPath() -> UIBezierPath {
         
-        let radius = KVSpinnerViewSettings.spinnerRadius
+        let radius = KVSpinnerView.settings.spinnerRadius
         let linesDistance = radius / 5
         
         let startEvenAngle = CGFloat(-M_PI_2)

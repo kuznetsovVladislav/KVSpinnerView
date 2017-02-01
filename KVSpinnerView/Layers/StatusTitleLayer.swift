@@ -25,7 +25,7 @@ class StatusTitleLayer: CATextLayer {
         fontSize = 16.0
         contentsScale = UIScreen.main.scale
         alignmentMode = kCAAlignmentCenter
-        foregroundColor = KVSpinnerViewSettings.statusTextColor.cgColor
+        foregroundColor = KVSpinnerView.settings.statusTextColor.cgColor
         //backgroundColor = UIColor.red.cgColor // <- Uncomment to see layers frame borders
     }
     
