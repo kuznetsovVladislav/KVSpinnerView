@@ -12,7 +12,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        KVSpinnerView.settings.backgroundRectColor = .purple
+//        KVSpinnerView.settings.tintColor = .black
+//        KVSpinnerView.settings.statusTextColor = .black
+        KVSpinnerView.settings.animationStyle = .infinite
+        KVSpinnerView.show(saying: "Purple")
+        
     }
 
     @IBAction func showStandartSpinner(_ sender: Any) {
