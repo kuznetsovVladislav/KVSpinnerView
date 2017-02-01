@@ -14,6 +14,13 @@ import UIKit
  */
 public struct KVSpinnerViewSettings {
     
+    public enum AnimationStyle {
+        case standart
+        case infinite
+    }
+    
+    public var animationStyle = AnimationStyle.standart
+    
     public var spinnerRadius: CGFloat = 50
     public var linesWidth: CGFloat = 4
     public var linesCount = 4

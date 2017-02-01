@@ -12,20 +12,20 @@ class RectangleLayer: CAShapeLayer {
     
     var statusMessage: String? {
         didSet {
-            updateLayers()
+         	updateLayers()
         }
     }
     
     fileprivate let rectSide = KVSpinnerView.settings.spinnerRadius + 80
     
-    var bezierPath: UIBezierPath {
+    fileprivate var bezierPath: UIBezierPath {
         return UIBezierPath(roundedRect: CGRect.init(x: -rectSide / 2,
                                                      y: -rectSide / 2,
                                                      width: rectSide,
                                                      height: rectSide), cornerRadius: rectSide / 5)
     }
     
-    func bezierPathWithStatus(width: CGFloat) -> UIBezierPath {
+    fileprivate func bezierPathWithStatus(width: CGFloat) -> UIBezierPath {
         return UIBezierPath(roundedRect: CGRect.init(x: width > rectSide ? -(width/2 + 10) : -rectSide / 2,
                                                      y: -rectSide / 2,
                                                      width: width > rectSide ? width + 20 : rectSide,
@@ -39,7 +39,7 @@ class RectangleLayer: CAShapeLayer {
     
     fileprivate func updateLayers() {
         if let message = statusMessage {
-            
+            sublayers?.removeAll()
             let font = UIFont.systemFont(ofSize: 16.0)
             let messageString = message as NSString
             let messageWidth = messageString.size(attributes: [NSFontAttributeName : font]).width
@@ -54,6 +54,9 @@ class RectangleLayer: CAShapeLayer {
             statusLayer.position = layerPosition
             
             addSublayer(statusLayer)
+        } else {
+            path = bezierPath.cgPath
+            sublayers?.removeAll()
         }
     }
     

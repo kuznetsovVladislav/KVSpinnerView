@@ -23,7 +23,7 @@ class AnimationManager: NSObject {
     internal lazy var strokeEndAnimation: CAAnimation = {
         let animation = CABasicAnimation(keyPath: "strokeEnd")
         animation.fromValue = 0
-        animation.toValue =
+        animation.toValue = 1
         animation.duration = KVSpinnerView.settings.animationDuration - 0.5
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         
@@ -50,6 +50,33 @@ class AnimationManager: NSObject {
         
         return group
     }()
+    
+    internal lazy var infiniteStrokeEndAnimation: CAAnimation = {
+        let animation = CABasicAnimation(keyPath: "strokeEnd")
+        animation.beginTime = 0.0
+        animation.fromValue = 0.0
+        animation.toValue = 0.4
+        animation.duration = 0.5
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animation.repeatCount = 1
+        animation.fillMode = kCAFillModeForwards
+        animation.isRemovedOnCompletion = false
+        
+        return animation
+    }()
+    
+    internal func infiniteStrokeRotateAnimation(isOdd: Bool) -> CAAnimation  {
+        let animation = CABasicAnimation(keyPath: "transform.rotation")
+       	animation.byValue = isOdd ? M_PI * -2.0 : M_PI * 2.0
+        
+        let group = CAAnimationGroup()
+        group.beginTime = 0.5
+        group.duration = 1.5
+        group.repeatCount = MAXFLOAT
+        group.animations = [animation]
+        
+        return group
+    }
     
     internal lazy var fadeInAnimation: CAAnimation = {
     	let animation = CABasicAnimation(keyPath: "opacity")

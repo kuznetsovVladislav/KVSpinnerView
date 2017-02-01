@@ -10,71 +10,34 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    var expectedContentLenght = 0
-    var buffer = NSMutableData()
-    var session: URLSession?
-    var dataTask: URLSessionDataTask?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-    @IBAction func showSpinner(_ sender: Any) {
-        KVSpinnerView.show()
+
+    @IBAction func showStandartSpinner(_ sender: Any) {
+        KVSpinnerView.settings.animationStyle = .standart
+        KVSpinnerView.show(saying: "Standart")
+    }
+
+    @IBAction func showInfiniteSpinner(_ sender: Any) {
+        KVSpinnerView.settings.animationStyle = .infinite
+        KVSpinnerView.show(saying: "Infinite")
+    }
+    
+    @IBAction func addStandartOnVIew(_ sender: Any) {
+        KVSpinnerView.settings.animationStyle = .standart
+        KVSpinnerView.show(on: self.view)
+    }
+    
+    @IBAction func addInfiniteOnView(_ sender: Any) {
+        KVSpinnerView.settings.animationStyle = .infinite
+        KVSpinnerView.show(on: self.view, saying: "Hello")
     }
     
     @IBAction func dismissSpinner(_ sender: Any) {
         KVSpinnerView.dismiss()
     }
-    
-    @IBAction func downloadImageAction(_ sender: Any) {
-        KVSpinnerView.showWithProgress()
-        realProgressExample()
-    }
-    
-    @IBAction func downloadImageTextAction(_ sender: Any) {
-        KVSpinnerView.showWithProgress(saying: "Downloading image")
-        realProgressExample()
-    }
-    
-    fileprivate func realProgressExample() {
-        let url = URL.init(
-            string: "https://upload.wikimedia.org/wikipedia/commons/d/dd/Big_&_Small_Pumkins.JPG")
-        let configuration = URLSessionConfiguration.default
-        let mainQueue = OperationQueue.main
-        session = URLSession(configuration: configuration,
-                             delegate: self,
-                             delegateQueue: mainQueue)
-        
-        dataTask = session?.dataTask(with: URLRequest(url: url!))
-        dataTask?.resume()
-        
-    }
-    
-    fileprivate func fakeProgressExample() {
-        KVSpinnerView.showWithProgress()
-        let time = DispatchTime.now() + .seconds(1)
-        let time2 = DispatchTime.now() + .seconds(2)
-        DispatchQueue.main.asyncAfter(deadline: time) {
-            KVSpinnerView.updateProgress(0.5)
-        }
-        DispatchQueue.main.asyncAfter(deadline: time2, execute: {
-            KVSpinnerView.updateProgress(1.0)
-        })
-    }
 }
 
-extension ViewController: URLSessionDelegate, URLSessionDataDelegate {
-    
-    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse, completionHandler: @escaping (URLSession.ResponseDisposition) -> Void) {
-        expectedContentLenght = Int(response.expectedContentLength)
-        completionHandler(URLSession.ResponseDisposition.allow)
-    }
-    
-    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
-        buffer.append(data)
-        let percentageDownloaded = CGFloat(buffer.length) / CGFloat(expectedContentLenght)
-        KVSpinnerView.updateProgress(percentageDownloaded)
-    }
-}
 

@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SwiftExample" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="SwiftExample" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -26,31 +26,39 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Dismiss Spinner"/>
                                 <connections>
-                                    <action selector="dismissSpinner:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jkn-DT-fgX"/>
+                                    <action selector="dismissSpinner:" destination="BYZ-38-t0r" eventType="touchUpInside" id="efg-Fe-lq2"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ate-l4-56C">
-                                <rect key="frame" x="134" y="28" width="95" height="30"/>
+                                <rect key="frame" x="25" y="28" width="156" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Show Spinner"/>
+                                <state key="normal" title="Show standart Spinner"/>
                                 <connections>
-                                    <action selector="showSpinner:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bFh-Ls-p7f"/>
+                                    <action selector="showStandartSpinner:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LEz-VW-UA3"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqk-AH-Tr0">
-                                <rect key="frame" x="124" y="104" width="114" height="30"/>
+                                <rect key="frame" x="82" y="104" width="200" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Download image"/>
+                                <state key="normal" title="Add standart spinner on view"/>
                                 <connections>
-                                    <action selector="downloadImageAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="o1I-9t-ntr"/>
+                                    <action selector="addStandartOnVIew:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z82-1j-2hm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dir-bh-xJO">
-                                <rect key="frame" x="91" y="142" width="180" height="30"/>
+                                <rect key="frame" x="87" y="142" width="189" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Downloadi image with text"/>
+                                <state key="normal" title="Add infinite spinner on view"/>
                                 <connections>
-                                    <action selector="downloadImageTextAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HUi-q0-Dg7"/>
+                                    <action selector="addInfiniteOnView:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cmh-Wc-HJg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DJ3-xF-Tq6">
+                                <rect key="frame" x="204" y="27" width="143" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Show infinite spinner"/>
+                                <connections>
+                                    <action selector="showInfiniteSpinner:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Rxo-We-kFN"/>
                                 </connections>
                             </button>
                         </subviews>
