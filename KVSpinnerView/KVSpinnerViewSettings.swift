@@ -24,6 +24,7 @@ public struct KVSpinnerViewSettings {
     public static var backgroundRectColor: UIColor = .purple
     public static var statusTextColor: UIColor = .white
     
+    public static var minimumDismissDelay = 0.0
     public static var animationDuration = 2.0
     public static var fadeInDuration = 0.3
     public static var fadeOutDuration = 0.3

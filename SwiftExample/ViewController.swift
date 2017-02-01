@@ -33,6 +33,11 @@ class ViewController: UIViewController {
         realProgressExample()
     }
     
+    @IBAction func downloadImageTextAction(_ sender: Any) {
+        KVSpinnerView.shared.showWithProgress(saying: "Downloading image")
+        realProgressExample()
+    }
+    
     fileprivate func realProgressExample() {
         let url = URL.init(
             string: "https://upload.wikimedia.org/wikipedia/commons/d/dd/Big_&_Small_Pumkins.JPG")

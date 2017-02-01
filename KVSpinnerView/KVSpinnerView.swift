@@ -284,16 +284,23 @@ fileprivate extension KVSpinnerView {
     }
     
     fileprivate func privateDismiss() {
-        UIView.animate(withDuration: KVSpinnerViewSettings.fadeOutDuration, animations: {
+        UIView.animate(withDuration: KVSpinnerViewSettings.fadeOutDuration,
+                       delay: KVSpinnerViewSettings.minimumDismissDelay,
+                       options: .curveEaseInOut,
+                       animations: {
             self.alpha = 0.0
-        }) { (success) in
+        }, completion: { (success) in
             self.isAnimating = false
             self.removeFromSuperview()
-        }
+        })
     }
     
     fileprivate func privateDismiss(afterDelay delay: TimeInterval) {
-        UIView.animate(withDuration: KVSpinnerViewSettings.fadeOutDuration, delay: delay, options: .curveEaseInOut, animations: { 
+        let minDelay = KVSpinnerViewSettings.minimumDismissDelay
+        UIView.animate(withDuration: KVSpinnerViewSettings.fadeOutDuration,
+                       delay: minDelay > delay ? minDelay : delay,
+                       options: .curveEaseInOut,
+                       animations: {
             self.alpha = 0.0
         }) { (success) in
             self.isAnimating = false
