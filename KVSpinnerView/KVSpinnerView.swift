@@ -15,7 +15,7 @@ public class KVSpinnerView: UIView {
     //MARK: - Public Static
     
     /**
-    	You only should invoke shared instance to use any methods
+    	You should only invoke shared instance to use any methods
     	of KVSpinnerView
  	*/
     public static var shared = KVSpinnerView()
@@ -24,6 +24,7 @@ public class KVSpinnerView: UIView {
     	Adds SpinnerView to UIWindow and start animating it
 	*/
     public func show() {
+        animationType = .standart
         privateShow()
     }
     
@@ -32,6 +33,7 @@ public class KVSpinnerView: UIView {
     	- parameter view: use from ViewController (for example: self.view).
  	*/
     public func show(on view: UIView) {
+        animationType = .standart
         privateStartAnimating(on: view)
     }
     
@@ -42,6 +44,7 @@ public class KVSpinnerView: UIView {
     	- parameter progress: incoming progress
      */
     public func showWithProgress() {
+        animationType = .progress
         privateShowWithProgress()
         privateShow()
     }
@@ -52,7 +55,9 @@ public class KVSpinnerView: UIView {
      	- parameter status: message you want to display
  	*/
     public func show(saying status: String) {
+        animationType = .standart
         privateShow(withMessage: status)
+        privateShowWithProgress()
     }
     
     /**
@@ -61,8 +66,10 @@ public class KVSpinnerView: UIView {
      	- parameter status: 	message you want to display
      	- parameter progress: 	incoming progress(use in request progress closure)
     */
-    public func show(saying status: String, withProgress progress: Progress) {
-        
+    public func showWithProgress(saying status: String) {
+        animationType = .progress
+    	privateShowWithProgress()
+        privateShow(withMessage: status)
     }
     
     /**
@@ -83,12 +90,13 @@ public class KVSpinnerView: UIView {
     }
     
     /**
-     	Updates progress of KVSpinnerView usinge Progress.fractionCompleted value.
+     	Updates progress of KVSpinnerView usinge progress values.
      	Call in from progress closures
-     	- parameter progress: e.g. use it in Alamofire .downloadProgress(_ progress) closure
+     	- parameter progress: e.g. use it in Alamofire .downloadProgress(_ progress) closure.
+     	Value has to vary between 0.0 and 1.0
      */
     public func updateProgress(_ progress: CGFloat) {
-        self.progress = progress//CGFloat(progress.fractionCompleted)
+        self.progress = progress
     }
     
     //MARK: - Private variables
@@ -194,11 +202,14 @@ public class KVSpinnerView: UIView {
     }
     
     fileprivate func progressDidChange() {
+        let assertion = progress >= 0.0 || progress <= 1.0
+        assert(assertion, "Progress value should vary between 0.0 and 1.0")
         if progress == 1.0 {
-            dismiss(after: 0.3)
-        }
-        for circleLayer in circleLayers {
-            circleLayer.add(AnimationManager.shared.animateStrokeEnd(toValue: progress), forKey: "strokeEndAnimation")
+            dismiss()
+        } else {
+            for circleLayer in circleLayers {
+                circleLayer.add(AnimationManager.shared.animateStrokeEnd(toValue: progress), forKey: "strokeEndAnimation")
+            }
         }
     }
     
@@ -233,7 +244,7 @@ public class KVSpinnerView: UIView {
     }
 }
 
-//MARK: - Private extension
+//MARK: - Private helping methods
 
 fileprivate extension KVSpinnerView {
  
@@ -266,18 +277,17 @@ fileprivate extension KVSpinnerView {
     fileprivate func privateShow(withMessage message: String) {
         rectangleLayer.statusMessage = message
         privateShow()
-//    	rectangleLayer.bounds
     }
     
     fileprivate func privateShowWithProgress() {
-        animationType = .progress
-        progress = 0.1
+        progress = 0.0
     }
     
     fileprivate func privateDismiss() {
         UIView.animate(withDuration: KVSpinnerViewSettings.fadeOutDuration, animations: {
             self.alpha = 0.0
         }) { (success) in
+            self.isAnimating = false
             self.removeFromSuperview()
         }
     }
@@ -286,6 +296,7 @@ fileprivate extension KVSpinnerView {
         UIView.animate(withDuration: KVSpinnerViewSettings.fadeOutDuration, delay: delay, options: .curveEaseInOut, animations: { 
             self.alpha = 0.0
         }) { (success) in
+            self.isAnimating = false
             self.removeFromSuperview()
         }
     }

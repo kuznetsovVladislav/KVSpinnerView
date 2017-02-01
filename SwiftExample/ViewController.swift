@@ -20,17 +20,22 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     @IBAction func showSpinner(_ sender: Any) {
-        KVSpinnerView.shared.showWithProgress()
-        realProgressExample()
+        KVSpinnerView.shared.show()
+        
     }
     
     @IBAction func dismissSpinner(_ sender: Any) {
         KVSpinnerView.shared.dismiss()
     }
     
+    @IBAction func downloadImageAction(_ sender: Any) {
+        KVSpinnerView.shared.showWithProgress()
+        realProgressExample()
+    }
+    
     fileprivate func realProgressExample() {
         let url = URL.init(
-            string: "https://upload.wikimedia.org/wikipedia/commons/2/24/Willaerts_Adam_The_Embarkation_of_the_Elector_Palantine_Oil_Canvas-huge.jpg")
+            string: "https://upload.wikimedia.org/wikipedia/commons/d/dd/Big_&_Small_Pumkins.JPG")
         let configuration = URLSessionConfiguration.default
         let mainQueue = OperationQueue.main
         session = URLSession(configuration: configuration,
