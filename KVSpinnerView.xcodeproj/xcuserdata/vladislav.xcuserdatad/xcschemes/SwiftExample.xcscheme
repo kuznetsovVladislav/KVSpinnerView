@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8671371A1E413C7D00C3F267"
-               BuildableName = "ExampleProject.app"
-               BlueprintName = "ExampleProject"
+               BlueprintIdentifier = "8687F2121E41769E00C1392C"
+               BuildableName = "SwiftExample.app"
+               BlueprintName = "SwiftExample"
                ReferencedContainer = "container:KVSpinnerView.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -32,9 +32,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8671371A1E413C7D00C3F267"
-            BuildableName = "ExampleProject.app"
-            BlueprintName = "ExampleProject"
+            BlueprintIdentifier = "8687F2121E41769E00C1392C"
+            BuildableName = "SwiftExample.app"
+            BlueprintName = "SwiftExample"
             ReferencedContainer = "container:KVSpinnerView.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -55,9 +55,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8671371A1E413C7D00C3F267"
-            BuildableName = "ExampleProject.app"
-            BlueprintName = "ExampleProject"
+            BlueprintIdentifier = "8687F2121E41769E00C1392C"
+            BuildableName = "SwiftExample.app"
+            BlueprintName = "SwiftExample"
             ReferencedContainer = "container:KVSpinnerView.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -74,9 +74,9 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8671371A1E413C7D00C3F267"
-            BuildableName = "ExampleProject.app"
-            BlueprintName = "ExampleProject"
+            BlueprintIdentifier = "8687F2121E41769E00C1392C"
+            BuildableName = "SwiftExample.app"
+            BlueprintName = "SwiftExample"
             ReferencedContainer = "container:KVSpinnerView.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

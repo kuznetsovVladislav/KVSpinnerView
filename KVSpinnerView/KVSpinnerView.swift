@@ -41,9 +41,9 @@ public class KVSpinnerView: UIView {
     	request progress closure (for example Alamofire .downloadProgress(_ progress))
     	- parameter progress: incoming progress
      */
-    public func show(with progress: Progress) {
+    public func showWithProgress() {
+        privateShowWithProgress()
         privateShow()
-        privateHandleProgress(progress)
     }
     
 	/**
@@ -79,7 +79,16 @@ public class KVSpinnerView: UIView {
      	- parameter interval: incoming progress(use in request progress closure)
  	*/
     public func dismiss(after interval: TimeInterval) {
-        
+        privateDismiss(afterDelay: interval)
+    }
+    
+    /**
+     	Updates progress of KVSpinnerView usinge Progress.fractionCompleted value.
+     	Call in from progress closures
+     	- parameter progress: e.g. use it in Alamofire .downloadProgress(_ progress) closure
+     */
+    public func updateProgress(_ progress: CGFloat) {
+        self.progress = progress//CGFloat(progress.fractionCompleted)
     }
     
     //MARK: - Private variables
@@ -90,16 +99,29 @@ public class KVSpinnerView: UIView {
         }
     }
     
+    fileprivate enum AnimationType {
+        case standart
+        case progress
+    }
+
+    fileprivate var animationType = AnimationType.standart
+    
     fileprivate var circleLayers = [CircleLayer]()
     fileprivate var rectangleLayer = RectangleLayer()
     fileprivate var progressLayer = ProgressLayer()
     
-    fileprivate var progress: CGFloat = 0.0
     fileprivate var chosenView: UIView?
+    
+    fileprivate var progress: CGFloat = 0.0 {
+        didSet {
+            progressDidChange()
+        }
+    }
     
     //MARK: - Private methods
     
     fileprivate func setup() {
+        AnimationManager.shared.managerDelegate = self
         
         /// Rectangle layer
         self.layer.addSublayer(rectangleLayer)
@@ -128,12 +150,21 @@ public class KVSpinnerView: UIView {
     }
     
     fileprivate func updateAnimation() {
+        switch animationType {
+        case .standart:
+            updateStandartAnimation()
+        case .progress:
+            updateProgressAnimation()
+        }
+    }
+    
+    fileprivate func updateStandartAnimation() {
         if isAnimating == true {
-            rectangleLayer.add(AnimationManager.fadeInAnimation, forKey: "rectangleFadeIn")
+            rectangleLayer.add(AnimationManager.shared.fadeInAnimation, forKey: "rectangleFadeIn")
             for circleLayer in circleLayers {
-                circleLayer.add(AnimationManager.fadeInAnimation, forKey: "circlesFadeIn")
-                circleLayer.add(AnimationManager.strokeEndAnimation, forKey: "strokeEndAnimation")
-                circleLayer.add(AnimationManager.strokeStartAnimation, forKey: "strokeStartAnimation")
+                circleLayer.add(AnimationManager.shared.fadeInAnimation, forKey: "circlesFadeIn")
+                circleLayer.add(AnimationManager.shared.strokeEndAnimation, forKey: "strokeEndAnimation")
+                circleLayer.add(AnimationManager.shared.strokeStartAnimation, forKey: "strokeStartAnimation")
             }
         }
         else {
@@ -143,6 +174,31 @@ public class KVSpinnerView: UIView {
                 circleLayer.removeAnimation(forKey: "strokeEndAnimation")
                 circleLayer.removeAnimation(forKey: "strokeStartAnimation")
             }
+        }
+    }
+    
+    fileprivate func updateProgressAnimation() {
+        if isAnimating == true {
+            rectangleLayer.add(AnimationManager.shared.fadeInAnimation, forKey: "rectangleFadeIn")
+            for circleLayer in circleLayers {
+                circleLayer.add(AnimationManager.shared.fadeInAnimation, forKey: "circlesFadeIn")
+//                circleLayer.add(AnimationManager.animateStrokeEnd(toValue: progress), forKey: "strokeEndAnimation")
+            }
+        } else {
+            rectangleLayer.removeAnimation(forKey: "rectangleFadeIn")
+            for circleLayer in circleLayers {
+                circleLayer.removeAnimation(forKey: "circlesFadeIn")
+                circleLayer.removeAnimation(forKey: "strokeEndAnimation")
+            }
+        }
+    }
+    
+    fileprivate func progressDidChange() {
+        if progress == 1.0 {
+            dismiss(after: 0.3)
+        }
+        for circleLayer in circleLayers {
+            circleLayer.add(AnimationManager.shared.animateStrokeEnd(toValue: progress), forKey: "strokeEndAnimation")
         }
     }
     
@@ -213,6 +269,11 @@ fileprivate extension KVSpinnerView {
 //    	rectangleLayer.bounds
     }
     
+    fileprivate func privateShowWithProgress() {
+        animationType = .progress
+        progress = 0.1
+    }
+    
     fileprivate func privateDismiss() {
         UIView.animate(withDuration: KVSpinnerViewSettings.fadeOutDuration, animations: {
             self.alpha = 0.0
@@ -221,8 +282,21 @@ fileprivate extension KVSpinnerView {
         }
     }
     
-    fileprivate func privateHandleProgress(_ progress: Progress) {
-        progressLayer.string = "\(Int(progress.fractionCompleted * 100))%"
+    fileprivate func privateDismiss(afterDelay delay: TimeInterval) {
+        UIView.animate(withDuration: KVSpinnerViewSettings.fadeOutDuration, delay: delay, options: .curveEaseInOut, animations: { 
+            self.alpha = 0.0
+        }) { (success) in
+            self.removeFromSuperview()
+        }
+    }
+}
+
+//MARK: - 
+
+extension KVSpinnerView: AnimationManagerDelegate {
+    
+    func managerDidFinishProgressAnimation(_ animation: CAAnimation, _ manager: AnimationManager) {
+        AnimationManager.shared.downloadedProgress = progress
     }
     
 }

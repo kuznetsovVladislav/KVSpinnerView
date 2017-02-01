@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  ExampleProject
+//  SwiftExample
 //
-//  Created by Владислав  on 31.01.17.
+//  Created by Владислав  on 01.02.17.
 //  Copyright © 2017 Vladislav. All rights reserved.
 //
 
