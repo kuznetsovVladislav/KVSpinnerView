@@ -12,11 +12,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        KVSpinnerView.settings.backgroundRectColor = .purple
-//        KVSpinnerView.settings.tintColor = .black
-//        KVSpinnerView.settings.statusTextColor = .black
+        KVSpinnerView.settings.backgroundRectColor = .lightGray
+        KVSpinnerView.settings.tintColor = .black
+        KVSpinnerView.settings.statusTextColor = .black
         KVSpinnerView.settings.animationStyle = .infinite
-        KVSpinnerView.show(saying: "Purple")
+        KVSpinnerView.show(saying: "Downloading with long message")
         
     }
 
