@@ -93,7 +93,7 @@ Also `KVSpinnerView` is highly customizable. You can customize it by changing `K
 # Screenshots
 <img src="https://github.com/kuznetsovVladislav/KVSpinnerView/blob/master/Screenshots/purple.png" alt="Purple" width="220" height="380">
 <img src="https://github.com/kuznetsovVladislav/KVSpinnerView/blob/master/Screenshots/gray.png" alt="Gray" width="220" height="380">
-<img src="https://github.com/kuznetsovVladislav/KVSpinnerView/blob/master/Screenshots/purple.png" alt="Purple" width="220" height="380">
+<img src="https://github.com/kuznetsovVladislav/KVSpinnerView/blob/master/Screenshots/black.png" alt="Purple" width="220" height="380">
 
 # To do
 - Add animation of progress handling (e.g. URLSession/Alamofire progress handling)
