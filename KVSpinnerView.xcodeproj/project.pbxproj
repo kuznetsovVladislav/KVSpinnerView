@@ -27,6 +27,7 @@
 		8687F2291E41770A00C1392C /* ProgressLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8663ECFC1E40F15D00352D44 /* ProgressLayer.swift */; };
 		8687F22A1E41770A00C1392C /* RectangleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8663ECFD1E40F15D00352D44 /* RectangleLayer.swift */; };
 		8687F22B1E41770A00C1392C /* StatusTitleLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 867137321E413DB600C3F267 /* StatusTitleLayer.swift */; };
+		86B155251E492DA700C91902 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86B155241E492DA700C91902 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		8687F21C1E41769E00C1392C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8687F21F1E41769E00C1392C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8687F2211E41769E00C1392C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		86B155241E492DA700C91902 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 		E897FEF3FCF69B8447DE5D33 /* Pods-KVSpinnerView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVSpinnerView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-KVSpinnerView/Pods-KVSpinnerView.debug.xcconfig"; sourceTree = "<group>"; };
 		F41A60FE6D8B7267309BBE55 /* Pods-KVSpinnerView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KVSpinnerView.release.xcconfig"; path = "Pods/Target Support Files/Pods-KVSpinnerView/Pods-KVSpinnerView.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,6 +137,7 @@
 			children = (
 				8687F2151E41769E00C1392C /* AppDelegate.swift */,
 				8687F2171E41769E00C1392C /* ViewController.swift */,
+				86B155241E492DA700C91902 /* TableViewCell.swift */,
 				8687F2191E41769E00C1392C /* Main.storyboard */,
 				8687F21C1E41769E00C1392C /* Assets.xcassets */,
 				8687F21E1E41769E00C1392C /* LaunchScreen.storyboard */,
@@ -357,6 +360,7 @@
 				8687F2281E41770A00C1392C /* CircleLayer.swift in Sources */,
 				8687F2291E41770A00C1392C /* ProgressLayer.swift in Sources */,
 				8687F2161E41769E00C1392C /* AppDelegate.swift in Sources */,
+				86B155251E492DA700C91902 /* TableViewCell.swift in Sources */,
 				8687F22B1E41770A00C1392C /* StatusTitleLayer.swift in Sources */,
 				8687F2261E4176E900C1392C /* KVSpinnerViewSettings.swift in Sources */,
 				8687F2251E4176E400C1392C /* KVSpinnerView.swift in Sources */,
@@ -616,6 +620,7 @@
 				8687F2241E41769E00C1392C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
