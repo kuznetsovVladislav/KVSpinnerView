@@ -21,20 +21,26 @@ public class KVSpinnerView: UIView {
 
     /// Adds SpinnerView to UIWindow and start animating it
     public static func show() {
-        KVSpinnerView.shared.privateStartAnimating(onView: nil, withMessage: nil)
+        KVSpinnerView.shared.animationTypeIsProgress = false
+        KVSpinnerView.shared.startAnimating(onView: nil,
+                                            withMessage: nil)
     }
     
     /// Adds SpinnerView to your view and start animating it
     ///	with message.
     /// - Parameter status: message you want to display
     public static func show(saying status: String) {
-        KVSpinnerView.shared.privateStartAnimating(onView: nil, withMessage: status)
+        KVSpinnerView.shared.animationTypeIsProgress = false
+        KVSpinnerView.shared.startAnimating(onView: nil,
+                                            withMessage: status)
     }
 
     /// Adds SpinnerView to your view and start animating it
     /// - Parameter view: use from ViewController (for example: self.view).
     public static func show(on view: UIView) {
-        KVSpinnerView.shared.privateStartAnimating(onView: view, withMessage: nil)
+        KVSpinnerView.shared.animationTypeIsProgress = false
+        KVSpinnerView.shared.startAnimating(onView: view,
+                                            withMessage: nil)
     }
     
     /// Adds SpinnerView to your view and start animating it
@@ -43,47 +49,84 @@ public class KVSpinnerView: UIView {
     ///   - view: use from ViewController (for example: self.view).
     ///   - status: message you want to display
     public static func show(on view: UIView, saying status: String) {
-        KVSpinnerView.shared.privateStartAnimating(onView: view, withMessage: status)
+        KVSpinnerView.shared.animationTypeIsProgress = false
+        KVSpinnerView.shared.startAnimating(onView: view,
+                                            withMessage: status)
     }
     
     /// Adds SpinnerView to UIWindow and start animating it with given progress.
     /// E.g. Use request progress closure (for example Alamofire .downloadProgress(_ progress))
-    //TODO: Make this method work
-    private static func showWithProgress() {
-//        KVSpinnerView.shared.animationTypeIsProgress = true
-//        KVSpinnerView.shared.privateShowWithProgress()
-//        KVSpinnerView.shared.privateShow()
+    public static func showProgress() {
+        KVSpinnerView.shared.animationTypeIsProgress = true
+        KVSpinnerView.shared.startAnimating(onView: nil,
+                                            withMessage: nil)
+        KVSpinnerView.shared.progressChangesFirstTime = true
+        KVSpinnerView.shared.handleProgress(nil, orProgressUnits: 0.05)
     }
     
     /// Adds SpinnerView to your view and start animating it
     /// with message and progress.
     /// - Parameter status: message you want to display
-    //  TODO: Make this method work
-    private static func showWithProgress(saying status: String) {
-//        KVSpinnerView.shared.animationTypeIsProgress = true
-//    	KVSpinnerView.shared.privateShowWithProgress()
-//        KVSpinnerView.shared.privateShow(withMessage: status)
+    public static func showProgress(saying status: String) {
+        KVSpinnerView.shared.animationTypeIsProgress = true
+        KVSpinnerView.shared.startAnimating(onView: nil,
+                                            withMessage: status)
+        KVSpinnerView.shared.progressChangesFirstTime = true
+        KVSpinnerView.shared.handleProgress(nil, orProgressUnits: 0.05)
+    }
+    
+    /// Adds SpinnerView to your view and start animating it
+    /// with message and progress.
+    /// - Parameter view: use from ViewController (for example: self.view).
+    public static func showProgress(on view: UIView) {
+        KVSpinnerView.shared.animationTypeIsProgress = true
+        KVSpinnerView.shared.startAnimating(onView: view,
+                                            withMessage: nil)
+        KVSpinnerView.shared.progressChangesFirstTime = true
+        KVSpinnerView.shared.handleProgress(nil, orProgressUnits: 0.05)
+    }
+    
+    /// Adds SpinnerView to your view and start animating it
+    /// with message and progress.
+    /// - Parameters:
+    ///   - view: use from ViewController (for example: self.view).
+    ///   - status: message you want to display
+    public static func showProgress(on view: UIView, saying status: String) {
+        KVSpinnerView.shared.animationTypeIsProgress = true
+        KVSpinnerView.shared.startAnimating(onView: view,
+                                            withMessage: status)
+        KVSpinnerView.shared.progressChangesFirstTime = true
+        KVSpinnerView.shared.handleProgress(nil, orProgressUnits: 0.05)
+    }
+    
+    /// Handles progress of request.
+    /// Use this method in 'downloadProgress' closure
+    /// - Parameters:
+    ///   - progress: progress that you should call from 'downloadProgress' closure
+    public static func handle(progress: Progress) {
+        KVSpinnerView.shared.progressChangesFirstTime = false
+        KVSpinnerView.shared.handleProgress(progress, orProgressUnits: nil)
+    }
+	
+    /// Handles progress of request units.
+    /// You should specify number from 1.0 to 1.1.
+    /// - Parameter progressUnits: value from 0.0 to 1.0. Use this value if you can't use value of 'Progress' type.
+    public static func handle(progressUnits: CGFloat) {
+        KVSpinnerView.shared.progressChangesFirstTime = false
+        KVSpinnerView.shared.handleProgress(nil, orProgressUnits: progressUnits)
     }
 
     /// Removes SpinnerView from either UIWindow or ViewController's view
     /// and stops all animations
     public static func dismiss() {
-		KVSpinnerView.shared.privateDismiss()
+		KVSpinnerView.shared.dismiss()
     }
     
     /// Removes SpinnerView from either UIWindow or ViewController's view
     /// and stops all animations after 'interval' time.
     /// - Parameter interval: incoming progress(use in request progress closure)
     public static func dismiss(after interval: TimeInterval) {
-        KVSpinnerView.shared.privateDismiss(afterDelay: interval)
-    }
-    
-    /// Updates progress of KVSpinnerView usinge progress values.
-    /// Call in from progress closures
-    /// - Parameter progress: e.g. use it in Alamofire .downloadProgress(_ progress) closure.
-    ///						  Value has to vary between 0.0 and 1.0
-    private static func updateProgress(_ progress: CGFloat) {
-        KVSpinnerView.shared.progress = progress
+        KVSpinnerView.shared.dismiss(afterDelay: interval)
     }
     
     //MARK: - Private variables
@@ -93,6 +136,7 @@ public class KVSpinnerView: UIView {
     fileprivate var rectangleLayer = RectangleLayer()
     fileprivate var progressLayer = ProgressLayer()
     fileprivate var animationTypeIsProgress = false
+    fileprivate var progressChangesFirstTime = false
     fileprivate var chosenView: UIView?
     
     fileprivate var isAnimating: Bool = true {
@@ -175,18 +219,15 @@ public class KVSpinnerView: UIView {
     }
     
     fileprivate func updateProgressAnimation() {
-        if isAnimating == true {
-            rectangleLayer.add(AnimationManager.shared.fadeInAnimation, forKey: "rectangleFadeIn")
-            for circleLayer in circleLayers {
-                circleLayer.add(AnimationManager.shared.fadeInAnimation, forKey: "circlesFadeIn")
-//                circleLayer.add(AnimationManager.animateStrokeEnd(toValue: progress), forKey: "strokeEndAnimation")
-            }
+        if isAnimating {
+            circleLayers.forEach({ (circleLayer) in
+                circleLayer.add(AnimationManager.shared.infiniteStrokeEndAnimation,
+                                forKey: "infiniteStrokeStartAnimation")
+                circleLayer.add(AnimationManager.shared.infiniteStrokeRotateAnimation(isOdd: circleLayer.index % 2 == 0),
+                                forKey: "infiniteStrokeRotateAnimation")
+            })
         } else {
-            rectangleLayer.removeAnimation(forKey: "rectangleFadeIn")
-            for circleLayer in circleLayers {
-                circleLayer.removeAnimation(forKey: "circlesFadeIn")
-                circleLayer.removeAnimation(forKey: "strokeEndAnimation")
-            }
+            clearAllAnimation()
         }
     }
     
@@ -194,7 +235,7 @@ public class KVSpinnerView: UIView {
         let assertion = progress >= 0.0 || progress <= 1.0
         assert(assertion, "Progress value should vary between 0.0 and 1.0")
         if progress == 1.0 {
-            KVSpinnerView.dismiss()
+            clearAllAnimation()
         } else {
             for circleLayer in circleLayers {
                 circleLayer.add(AnimationManager.shared.animateStrokeEnd(toValue: progress), forKey: "strokeEndAnimation")
@@ -229,7 +270,7 @@ public class KVSpinnerView: UIView {
     
     override public func awakeFromNib() {
         super.awakeFromNib()
-        fatalError("You have to use 'SpinningView.show()' or 'SpinningView.startAnimating(on view: _)' instead.\n")
+        fatalError("You have to use 'KVSpinnerView.show()' instead.\n")
     }
 }
 
@@ -237,10 +278,10 @@ public class KVSpinnerView: UIView {
 
 fileprivate extension KVSpinnerView {
     
-    fileprivate func privateStartAnimating(onView view: UIView?, withMessage message: String?) { ///////
+    fileprivate func startAnimating(onView view: UIView?,
+                                    withMessage message: String?) {
         clearAllAnimation()
-        KVSpinnerView.shared.animationTypeIsProgress = false
-        rectangleLayer.statusMessage = message == nil ? nil : message!
+        rectangleLayer.statusMessage = message != nil ? message : nil
         isAnimating = true
         if let view = view {
             chosenView = view
@@ -250,11 +291,22 @@ fileprivate extension KVSpinnerView {
         }
     }
     
-    fileprivate func privateShowWithProgress() {
-        progress = 0.0
+    fileprivate func handleProgress(_ progress: Progress?,
+                                    orProgressUnits units: CGFloat?) {
+        if let progress = progress {
+            let completed = CGFloat(progress.fractionCompleted)
+            if completed > 0.05 || progressChangesFirstTime{
+                self.progress = completed
+            }
+        }
+        if let units = units {
+            if  units > 0.05 || progressChangesFirstTime {
+                self.progress = units
+            }
+        }
     }
     
-    fileprivate func privateDismiss() {
+    fileprivate func dismiss() {
         UIView.animate(withDuration: KVSpinnerView.settings.fadeOutDuration,
                        delay: KVSpinnerView.settings.minimumDismissDelay,
                        options: .curveEaseInOut,
@@ -262,11 +314,12 @@ fileprivate extension KVSpinnerView {
             self.alpha = 0.0
         }, completion: { (success) in
             self.isAnimating = false
+            self.progress = 0.0
             self.removeFromSuperview()
         })
     }
     
-    fileprivate func privateDismiss(afterDelay delay: TimeInterval) {
+    fileprivate func dismiss(afterDelay delay: TimeInterval) {
         let minDelay = KVSpinnerView.settings.minimumDismissDelay
         UIView.animate(withDuration: KVSpinnerView.settings.fadeOutDuration,
                        delay: minDelay > delay ? minDelay : delay,
@@ -275,6 +328,7 @@ fileprivate extension KVSpinnerView {
             self.alpha = 0.0
         }) { (success) in
             self.isAnimating = false
+            self.progress = 0.0
             self.removeFromSuperview()
         }
     }
@@ -289,7 +343,7 @@ fileprivate extension KVSpinnerView {
                             width: radius,
                             height: radius)
         self.center = CGPoint(x: window.bounds.midX,
-                              y: rectangleLayer.statusMessage == nil ? window.bounds.midY : window.bounds.midY - 30) //Height of textLayer
+                              y: rectangleLayer.statusMessage == nil ? window.bounds.midY : window.bounds.midY - 30) // Height of textLayer
         self.alpha = 0.0
         window.addSubview(self)
         UIView.animate(withDuration: KVSpinnerView.settings.fadeInDuration,
@@ -308,7 +362,7 @@ fileprivate extension KVSpinnerView {
                             height: radius)
         
         self.center = CGPoint(x: parentView.bounds.midX,
-                              y: rectangleLayer.statusMessage == nil ? parentView.bounds.midY : parentView.bounds.midY - 30)  //Height of textLayer
+                              y: rectangleLayer.statusMessage == nil ? parentView.bounds.midY : parentView.bounds.midY - 30)  // Height of textLayer
         self.alpha = 0.0
         parentView.addSubview(self)
         UIView.animate(withDuration: KVSpinnerView.settings.fadeInDuration,

@@ -18,11 +18,14 @@ class ViewController: UIViewController {
         case onView
         case onViewWithStatus
         case delayedDismiss
+        case imageProgress
     }
     
     var cells:[CellType] = [.standart, .withStatus,
                             .onView, .onViewWithStatus,
-                            .delayedDismiss]
+                            .delayedDismiss, .imageProgress]
+    
+    let networkManager = NetworkManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +47,17 @@ class ViewController: UIViewController {
         navigationItem.rightBarButtonItem = settingsItem
     }
     
+    fileprivate func downloadHugeImage() {
+        KVSpinnerView.showProgress(saying: "Image loading")
+        networkManager.progressHandler = { progress in
+            KVSpinnerView.handle(progress: progress)
+        }
+        networkManager.downloadCompletion = { image in
+            KVSpinnerView.dismiss()
+        }
+        networkManager.downloadImage()
+    }
+
     func stopAction(sender: Any) {
         KVSpinnerView.dismiss()
     }
@@ -66,6 +80,8 @@ extension ViewController: UITableViewDataSource {
             cell.titleLabel.text = "Standart Animation on view with status"
         case .delayedDismiss:
             cell.titleLabel.text = "Delayed Dismiss"
+        case .imageProgress:
+            cell.titleLabel.text = "Load huge image"
         }
     	return cell
     }
@@ -96,6 +112,8 @@ extension ViewController: UITableViewDelegate {
         case .delayedDismiss:
             KVSpinnerView.show()
             KVSpinnerView.dismiss(after: 2.0)
+        case .imageProgress:
+            downloadHugeImage()
         }
     }
     
