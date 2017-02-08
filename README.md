@@ -63,6 +63,22 @@ class ViewController: UIViewController {
 }
 ```
 
+To hanle a progress of current request you need to call 'KVSpinnerView.showProgress()' instead of `showProgress()` method and then you should call 'KVSpinnerView.handle(progress: progress)' method in *downloadProgress* handler:
+
+```swift
+KVSpinnerView.showProgress()
+self.doSomeTask().downloadProgress { progress in
+	DispatchQueue.main.async {
+		KVSpinnerView.handle(progress: progress)
+	}
+	.response { response in
+		DispatchQueue.main.async {
+			KVSpinnerView.dismiss()
+		}
+	}
+}
+```
+
 # Customize
 Also `KVSpinnerView` is highly customizable. You can customize it by changing `KVSpinnerView.settings` parameters, such as:
 
@@ -96,7 +112,6 @@ Also `KVSpinnerView` is highly customizable. You can customize it by changing `K
 <img src="https://github.com/kuznetsovVladislav/KVSpinnerView/blob/master/Screenshots/black.png" alt="Purple" width="220" height="380">
 
 # To do
-- Add animation of progress handling (e.g. URLSession/Alamofire progress handling)
 - Add several animation types
 - Add success and error animations with status messages
 
