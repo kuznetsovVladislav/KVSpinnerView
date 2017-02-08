@@ -10,7 +10,7 @@
 
 Using [CocoaPods](https://cocoapods.org/) is highly recommended way you should use to add `KVSpinnerView` to your project
 
-1. Add this line to your Podfile `pod 'KVSpinnerView', '~> 1.0'`
+1. Add this line to your Podfile `pod 'KVSpinnerView', '~> 1.0.1'`
 
 2. Close .xcodeproj -> Open terminal -> Open project directory -> run `pod install`
 
