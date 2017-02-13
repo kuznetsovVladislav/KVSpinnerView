@@ -40,7 +40,6 @@
 		8663ECFD1E40F15D00352D44 /* RectangleLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RectangleLayer.swift; sourceTree = "<group>"; };
 		8663ED011E40F16D00352D44 /* AnimationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationManager.swift; sourceTree = "<group>"; };
 		8663ED021E40F16D00352D44 /* KVSpinnerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KVSpinnerView.swift; sourceTree = "<group>"; };
-		8671371B1E413C7D00C3F267 /* ExampleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExampleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		867137321E413DB600C3F267 /* StatusTitleLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTitleLayer.swift; sourceTree = "<group>"; };
 		867137351E413EAE00C3F267 /* KVSpinnerViewSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KVSpinnerViewSettings.swift; sourceTree = "<group>"; };
 		8687F2131E41769E00C1392C /* SwiftExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,13 +61,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0C4D04A7D508645E900E05F4 /* Pods_KVSpinnerView.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		867137181E413C7D00C3F267 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,7 +97,6 @@
 			isa = PBXGroup;
 			children = (
 				861667A01E40EE910050BD06 /* KVSpinnerView.framework */,
-				8671371B1E413C7D00C3F267 /* ExampleProject.app */,
 				8687F2131E41769E00C1392C /* SwiftExample.app */,
 			);
 			name = Products;
@@ -191,23 +182,6 @@
 			productReference = 861667A01E40EE910050BD06 /* KVSpinnerView.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		8671371A1E413C7D00C3F267 /* ExampleProject */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8671372C1E413C7D00C3F267 /* Build configuration list for PBXNativeTarget "ExampleProject" */;
-			buildPhases = (
-				867137171E413C7D00C3F267 /* Sources */,
-				867137181E413C7D00C3F267 /* Frameworks */,
-				867137191E413C7D00C3F267 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ExampleProject;
-			productName = ExampleProject;
-			productReference = 8671371B1E413C7D00C3F267 /* ExampleProject.app */;
-			productType = "com.apple.product-type.application";
-		};
 		8687F2121E41769E00C1392C /* SwiftExample */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8687F2221E41769E00C1392C /* Build configuration list for PBXNativeTarget "SwiftExample" */;
@@ -240,11 +214,6 @@
 						DevelopmentTeam = M375QZ42BY;
 						ProvisioningStyle = Automatic;
 					};
-					8671371A1E413C7D00C3F267 = {
-						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = M375QZ42BY;
-						ProvisioningStyle = Automatic;
-					};
 					8687F2121E41769E00C1392C = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = M375QZ42BY;
@@ -266,7 +235,6 @@
 			projectRoot = "";
 			targets = (
 				8616679F1E40EE910050BD06 /* KVSpinnerView */,
-				8671371A1E413C7D00C3F267 /* ExampleProject */,
 				8687F2121E41769E00C1392C /* SwiftExample */,
 			);
 		};
@@ -274,13 +242,6 @@
 
 /* Begin PBXResourcesBuildPhase section */
 		8616679E1E40EE910050BD06 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		867137191E413C7D00C3F267 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -344,13 +305,6 @@
 				8663ED041E40F16D00352D44 /* KVSpinnerView.swift in Sources */,
 				8663ECFE1E40F15D00352D44 /* CircleLayer.swift in Sources */,
 				8663ED001E40F15D00352D44 /* RectangleLayer.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		867137171E413C7D00C3F267 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,32 +489,6 @@
 			};
 			name = Release;
 		};
-		8671372A1E413C7D00C3F267 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = M375QZ42BY;
-				INFOPLIST_FILE = ExampleProject/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kuznetsov.ExampleProject;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		8671372B1E413C7D00C3F267 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = M375QZ42BY;
-				INFOPLIST_FILE = ExampleProject/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.kuznetsov.ExampleProject;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
 		8687F2231E41769E00C1392C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -604,15 +532,6 @@
 			buildConfigurations = (
 				861667A91E40EE910050BD06 /* Debug */,
 				861667AA1E40EE910050BD06 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		8671372C1E413C7D00C3F267 /* Build configuration list for PBXNativeTarget "ExampleProject" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8671372A1E413C7D00C3F267 /* Debug */,
-				8671372B1E413C7D00C3F267 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

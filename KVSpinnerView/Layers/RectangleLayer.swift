@@ -36,20 +36,21 @@ class RectangleLayer: CAShapeLayer {
         path = bezierPath.cgPath
         fillColor = KVSpinnerView.settings.backgroundRectColor.cgColor
     }
-    
+     				//TODO: - Perhapse need to extend font in settings
     fileprivate func updateLayers() {
         if let message = statusMessage {
             sublayers?.removeAll()
             let font = UIFont.systemFont(ofSize: 16.0)
             let messageString = message as NSString
             let messageWidth = messageString.size(attributes: [NSFontAttributeName : font]).width
+            let messageHeight = messageString.size(attributes: [NSFontAttributeName : font]).height
             path = bezierPathWithStatus(width: messageWidth).cgPath
-            let statusLayer = StatusTitleLayer(message: message, 				//TODO: - Perhapse need to extend font in settings
+            let statusLayer = StatusTitleLayer(message: message,
                                                frame: CGRect(
                                                 x: messageWidth > rectSide ? -rectSide : 0,
                                                 y: 0.0,
-                                                width: messageWidth > rectSide ? messageWidth : rectSide,
-                                                height: 25))
+                                                width: max(messageWidth, rectSide),
+                                                height: max(25, messageHeight)))
             let layerPosition = CGPoint(x: bounds.midX, y: 70)
             statusLayer.position = layerPosition
             
