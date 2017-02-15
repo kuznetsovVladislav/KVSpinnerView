@@ -28,7 +28,8 @@ class StatusTitleLayer: CATextLayer {
         foregroundColor = KVSpinnerView.settings.statusTextColor.cgColor
         isWrapped = true
         
-        //backgroundColor = UIColor.red.cgColor // <- Uncomment to see layers frame borders
+        truncationMode = "middle"
+        backgroundColor = UIColor.red.cgColor // <- Uncomment to see layers frame borders
     }
     
     required init?(coder aDecoder: NSCoder) {

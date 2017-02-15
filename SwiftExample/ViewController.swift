@@ -104,7 +104,7 @@ extension ViewController: UITableViewDelegate {
         case .standart:
             KVSpinnerView.show()
         case .withStatus:
-            KVSpinnerView.show(saying: "Standart Animation with long text")
+            KVSpinnerView.show(saying: "Standart Animation with long text text text text text")
         case .onView:
             KVSpinnerView.show(on: self.view)
         case .onViewWithStatus:
