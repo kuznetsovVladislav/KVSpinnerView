@@ -6,6 +6,8 @@
 //  Copyright © 2017 Владислав . All rights reserved.
 //
 
+/*Secret string*/
+
 import UIKit
 
 //MARK: - KVSpinnerView
