@@ -29,7 +29,7 @@ class StatusTitleLayer: CATextLayer {
         isWrapped = true
         
         truncationMode = "middle"
-        backgroundColor = UIColor.red.cgColor // <- Uncomment to see layers frame borders
+//        backgroundColor = UIColor.red.cgColor // <- Uncomment to see layers frame borders
     }
     
     required init?(coder aDecoder: NSCoder) {

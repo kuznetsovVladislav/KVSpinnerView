@@ -102,9 +102,11 @@ extension ViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         switch cells[indexPath.row] {
         case .standart:
+            KVSpinnerView.settings.animationStyle = .standart
             KVSpinnerView.show()
         case .withStatus:
-            KVSpinnerView.show(saying: "Standart Animation with long text text text text text")
+            KVSpinnerView.settings.animationStyle = .infinite
+            KVSpinnerView.show(saying: "Infinite Animation with extremely ultimate fantastic long text")
         case .onView:
             KVSpinnerView.show(on: self.view)
         case .onViewWithStatus:

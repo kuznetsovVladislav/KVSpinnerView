@@ -56,7 +56,7 @@ class RectangleLayer: CAShapeLayer {
                                                       attributes: attributes)
             
             let rect = attributedString.boundingRect(
-                with: CGSize.init(width: 100, height: 10000),
+                with: CGSize.init(width: 200, height: 10000),
                 options: [.usesLineFragmentOrigin, .usesFontLeading],
                 context: nil)
 
@@ -66,12 +66,13 @@ class RectangleLayer: CAShapeLayer {
             path = bezierPathWithStatus(width: messageWidth, height: messageHeight).cgPath
             let statusLayer = StatusTitleLayer(message: message,
                                                frame: CGRect(
-                                                x: messageWidth > rectSide ? -rectSide : 0,
-                                                y: 100.0,
+                                                x: bounds.midX - max(messageWidth, rectSide) / 2,
+                                                y: KVSpinnerView.settings.spinnerRadius,
                                                 width: max(messageWidth, rectSide),
                                                 height: isTextWrapped ? messageHeight : 25))
-            let layerPosition = CGPoint(x: bounds.midX, y: KVSpinnerView.settings.spinnerRadius + 20)
-            statusLayer.position = layerPosition
+            let radius = KVSpinnerView.settings.spinnerRadius
+//            let layerPosition = CGPoint(x: bounds.midX, y: radius + frame.size.height)
+//            statusLayer.position = layerPosition
             
             addSublayer(statusLayer)
         } else {
