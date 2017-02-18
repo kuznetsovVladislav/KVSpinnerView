@@ -25,33 +25,54 @@ class RectangleLayer: CAShapeLayer {
                                                      height: rectSide), cornerRadius: rectSide / 5)
     }
     
-    fileprivate func bezierPathWithStatus(width: CGFloat) -> UIBezierPath {
-        return UIBezierPath(roundedRect: CGRect.init(x: width > rectSide ? -(width/2 + 10) : -rectSide / 2,
+    fileprivate func bezierPathWithStatus(width: CGFloat, height: CGFloat) -> UIBezierPath {
+        return UIBezierPath(roundedRect: CGRect.init(x: width > rectSide ? -(width / 2 + 10) : -rectSide / 2 - 10,
                                                      y: -rectSide / 2,
-                                                     width: width > rectSide ? width + 20 : rectSide,
-                                                     height: rectSide + 30), cornerRadius: rectSide / 5)
+                                                     width: width > rectSide ? width + 20 : rectSide + 20,
+                                                     height: rectSide + height),
+                            cornerRadius: rectSide / 5)
     }
     
     fileprivate func setup() {
         path = bezierPath.cgPath
         fillColor = KVSpinnerView.settings.backgroundRectColor.cgColor
     }
-    
+     				//TODO: - Perhapse need to extend font in settings
     fileprivate func updateLayers() {
         if let message = statusMessage {
             sublayers?.removeAll()
             let font = UIFont.systemFont(ofSize: 16.0)
+            var isTextWrapped = false
+            
             let messageString = message as NSString
-            let messageWidth = messageString.size(attributes: [NSFontAttributeName : font]).width
-            path = bezierPathWithStatus(width: messageWidth).cgPath
-            let statusLayer = StatusTitleLayer(message: message, 				//TODO: - Perhapse need to extend font in settings
+            var messageWidth = messageString.size(attributes: [NSFontAttributeName : font]).width
+            if messageWidth > 200 {
+                isTextWrapped = true
+                messageWidth = 200
+            }
+            
+            let attributes = [NSFontAttributeName : font]
+            let attributedString = NSAttributedString(string: message,
+                                                      attributes: attributes)
+            
+            let rect = attributedString.boundingRect(
+                with: CGSize.init(width: 200, height: 10000),
+                options: [.usesLineFragmentOrigin, .usesFontLeading],
+                context: nil)
+
+            let messageHeight = rect.size.height
+
+            
+            path = bezierPathWithStatus(width: messageWidth, height: messageHeight).cgPath
+            let statusLayer = StatusTitleLayer(message: message,
                                                frame: CGRect(
-                                                x: messageWidth > rectSide ? -rectSide : 0,
-                                                y: 0.0,
-                                                width: messageWidth > rectSide ? messageWidth : rectSide,
-                                                height: 25))
-            let layerPosition = CGPoint(x: bounds.midX, y: 70)
-            statusLayer.position = layerPosition
+                                                x: bounds.midX - max(messageWidth, rectSide) / 2,
+                                                y: KVSpinnerView.settings.spinnerRadius,
+                                                width: max(messageWidth, rectSide),
+                                                height: isTextWrapped ? messageHeight : 25))
+            let radius = KVSpinnerView.settings.spinnerRadius
+//            let layerPosition = CGPoint(x: bounds.midX, y: radius + frame.size.height)
+//            statusLayer.position = layerPosition
             
             addSublayer(statusLayer)
         } else {
