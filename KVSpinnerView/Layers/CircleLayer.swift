@@ -33,7 +33,7 @@ class CircleLayer: CAShapeLayer {
         let radius = KVSpinnerView.settings.spinnerRadius
         let linesDistance = radius / 5
         
-        let startEvenAngle = CGFloat(-Double.pi)
+        let startEvenAngle = CGFloat(-Double.pi / 2)
         let endEvenAngle = startEvenAngle + CGFloat(Double.pi * 2)
         let startOddAngle = CGFloat(0)
         let endOddAngle = startOddAngle + CGFloat(Double.pi * 2)
