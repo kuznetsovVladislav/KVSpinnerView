@@ -25,7 +25,7 @@ class AnimationManager: NSObject {
         animation.fromValue = 0
         animation.toValue = 1
         animation.duration = KVSpinnerView.settings.animationDuration - 0.5
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         
         let group = CAAnimationGroup()
         group.duration = KVSpinnerView.settings.animationDuration
@@ -41,7 +41,7 @@ class AnimationManager: NSObject {
         animation.fromValue = 0
         animation.toValue = 1
         animation.duration = KVSpinnerView.settings.animationDuration - 0.5
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         
         let group = CAAnimationGroup()
         group.duration = KVSpinnerView.settings.animationDuration
@@ -57,9 +57,9 @@ class AnimationManager: NSObject {
         animation.fromValue = 0.0
         animation.toValue = 0.4
         animation.duration = 0.5
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         animation.repeatCount = 1
-        animation.fillMode = kCAFillModeForwards
+        animation.fillMode = CAMediaTimingFillMode.forwards
         animation.isRemovedOnCompletion = false
         
         return animation
@@ -84,7 +84,7 @@ class AnimationManager: NSObject {
         animation.toValue = 1
         animation.repeatCount = 1
         animation.duration = KVSpinnerView.settings.fadeInDuration
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
 
         return animation
     }()
@@ -95,8 +95,8 @@ class AnimationManager: NSObject {
         animation.toValue = 0
         animation.repeatCount = 1
         animation.duration = KVSpinnerView.settings.fadeOutDuration
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-        animation.fillMode = kCAFillModeForwards
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+        animation.fillMode = CAMediaTimingFillMode.forwards
         animation.isRemovedOnCompletion = false
         
         return animation
@@ -112,8 +112,8 @@ class AnimationManager: NSObject {
         animation.toValue = value
         animation.repeatCount = 1
         animation.duration = 0.3
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        animation.fillMode = kCAFillModeForwards
+        animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        animation.fillMode = CAMediaTimingFillMode.forwards
         animation.isRemovedOnCompletion = false
         animation.delegate = self
         

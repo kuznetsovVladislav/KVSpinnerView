@@ -24,11 +24,11 @@ class StatusTitleLayer: CATextLayer {
         font = UIFont.systemFont(ofSize: 16.0)	//TODO: Change realization to SpinnerSettings
         fontSize = 16.0
         contentsScale = UIScreen.main.scale
-        alignmentMode = kCAAlignmentCenter
+        alignmentMode = CATextLayerAlignmentMode.center
         foregroundColor = KVSpinnerView.settings.statusTextColor.cgColor
         isWrapped = true
         
-        truncationMode = "middle"
+        truncationMode = CATextLayerTruncationMode(rawValue: "middle")
 //        backgroundColor = UIColor.red.cgColor // <- Uncomment to see layers frame borders
     }
     
