@@ -45,13 +45,13 @@ class RectangleLayer: CAShapeLayer {
             var isTextWrapped = false
             
             let messageString = message as NSString
-            var messageWidth = messageString.size(withAttributes: [NSAttributedStringKey.font : font]).width
+            var messageWidth = messageString.size(withAttributes: [NSAttributedString.Key.font : font]).width
             if messageWidth > 200 {
                 isTextWrapped = true
                 messageWidth = 200
             }
             
-            let attributes = [NSAttributedStringKey.font : font]
+            let attributes = [NSAttributedString.Key.font : font]
             let attributedString = NSAttributedString(string: message,
                                                       attributes: attributes)
             

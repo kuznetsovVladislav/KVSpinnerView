@@ -18,7 +18,7 @@ class ProgressLayer: CATextLayer {
 //        foregroundColor = KVSpinnerViewSettings.progressTextColor.cgColor
         frame = CGRect(x: 0, y: 0, width: 100, height: 40)
         fontSize = 24.0
-        alignmentMode = kCAAlignmentJustified
+        alignmentMode = CATextLayerAlignmentMode.justified
     }
     
     required init?(coder aDecoder: NSCoder) {
