@@ -45,13 +45,13 @@ class RectangleLayer: CAShapeLayer {
             var isTextWrapped = false
             
             let messageString = message as NSString
-            var messageWidth = messageString.size(attributes: [NSFontAttributeName : font]).width
+            var messageWidth = messageString.size(withAttributes: [NSAttributedString.Key.font : font]).width
             if messageWidth > 200 {
                 isTextWrapped = true
                 messageWidth = 200
             }
             
-            let attributes = [NSFontAttributeName : font]
+            let attributes = [NSAttributedString.Key.font : font]
             let attributedString = NSAttributedString(string: message,
                                                       attributes: attributes)
             
@@ -70,7 +70,7 @@ class RectangleLayer: CAShapeLayer {
                                                 y: KVSpinnerView.settings.spinnerRadius,
                                                 width: max(messageWidth, rectSide),
                                                 height: isTextWrapped ? messageHeight : 25))
-            let radius = KVSpinnerView.settings.spinnerRadius
+//            let radius = KVSpinnerView.settings.spinnerRadius
 //            let layerPosition = CGPoint(x: bounds.midX, y: radius + frame.size.height)
 //            statusLayer.position = layerPosition
             
